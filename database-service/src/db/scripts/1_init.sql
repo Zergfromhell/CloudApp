@@ -1,0 +1,27 @@
+CREATE TABLE city
+(
+    address             VARCHAR,
+    postal_code         INTEGER,
+    country             VARCHAR,
+    federal_district    VARCHAR,
+    region_type         VARCHAR,
+    region              VARCHAR,
+    area_type           VARCHAR,
+    area                VARCHAR,
+    city_type           VARCHAR,
+    city                VARCHAR,
+    settlement_type     VARCHAR,
+    settlement          VARCHAR,
+    kladr_id            VARCHAR,
+    fias_id             VARCHAR,
+    fias_level          VARCHAR,
+    capital_marker      INTEGER,
+    okato               VARCHAR,
+    oktmo               VARCHAR,
+    tax_office          VARCHAR,
+    timezone            VARCHAR,
+    geo_lat             VARCHAR,
+    geo_lon             VARCHAR,
+    population          VARCHAR,
+    foundation_year     VARCHAR
+);

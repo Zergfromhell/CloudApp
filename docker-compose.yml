@@ -1,0 +1,39 @@
+version: "3"
+services:
+  consul:
+    image: consul:latest
+    container_name: consul
+    ports:
+    - "8500:8500"
+  postgres:
+    build: ./database-service/src/db
+    image: postgres:latest
+    container_name: postgres
+    expose:
+      - "5432"
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=mydb
+    volumes:
+      - ./database-service/src/data:/data
+  dadata-service:
+    build: ./dadata-service
+    image: dadata-service
+    container_name: dadata-service
+    expose:
+      - "8081"
+  database-service:
+    build: ./database-service
+    image: database-service
+    container_name: database-service
+    expose:
+      - "8082"
+    depends_on:
+      - postgres
+  gateway:
+    build: ./gateway-service
+    image: gateway
+    container_name: gateway
+    ports:
+      - "8080:8070"

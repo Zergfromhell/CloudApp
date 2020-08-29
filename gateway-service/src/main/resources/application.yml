@@ -1,0 +1,17 @@
+server:
+  port: 8070
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: dadata-service
+          uri: lb://dadata-service
+          predicates:
+            - Path=/dadata/**
+        - id: database-service
+          uri: lb://database-service
+          predicates:
+            - Path=/database/**

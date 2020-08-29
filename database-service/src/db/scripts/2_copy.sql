@@ -1,0 +1,1 @@
+COPY city FROM '/data/city.csv' DELIMITER ',' CSV HEADER;
