@@ -12,7 +12,7 @@
     <modules>
         <module>dadata-service</module>
         <module>database-service</module>
-        <module>gateway-service</module>
+        <module>gateway</module>
     </modules>
 
     <parent>

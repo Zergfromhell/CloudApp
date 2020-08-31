@@ -32,7 +32,7 @@ services:
     depends_on:
       - postgres
   gateway:
-    build: ./gateway-service
+    build: ./gateway
     image: gateway
     container_name: gateway
     ports:

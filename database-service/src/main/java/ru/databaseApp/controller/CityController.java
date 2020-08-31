@@ -1,10 +1,10 @@
-package ru.dadataApp.controller;
+package ru.databaseApp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import ru.dadataApp.repository.CityRepository;
+import ru.databaseApp.repository.CityRepository;
 
 @Controller
 @RequestMapping("/database")

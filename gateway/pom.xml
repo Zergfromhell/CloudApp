@@ -10,7 +10,7 @@
         <version>1.4</version>
     </parent>
 
-    <artifactId>cloud-gateway-service</artifactId>
+    <artifactId>gateway</artifactId>
     <version>1.1</version>
     <name>gateway</name>
 

@@ -1,4 +1,4 @@
-package ru.dadataApp.model;
+package ru.databaseApp.model;
 
 import lombok.Getter;
 import lombok.Setter;
