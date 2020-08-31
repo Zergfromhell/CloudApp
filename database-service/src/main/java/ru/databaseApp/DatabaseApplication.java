@@ -6,9 +6,9 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class SecondApplication {
+public class DatabaseApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SecondApplication.class, args);
+        SpringApplication.run(DatabaseApplication.class, args);
     }
 }
