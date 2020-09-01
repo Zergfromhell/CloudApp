@@ -7,7 +7,6 @@ services:
     - "8500:8500"
   postgres:
     build: ./database-service/src/db
-    image: postgres:latest
     container_name: postgres
     expose:
       - "5432"
