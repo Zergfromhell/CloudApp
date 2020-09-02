@@ -19,10 +19,10 @@ public class DadataController {
         this.dadataService = dadataService;
     }
 
-    @GetMapping("/search/{id}")
-    public String cleanAddress(@PathVariable(name = "id") String id) throws IOException {
+    @GetMapping("/search/{kladr_id}")
+    public String cleanAddress(@PathVariable(name = "kladr_id") String kladr_id) throws IOException {
 
-        String resultRequest = dadataService.displayReturnedRequest("https://suggestions.dadata.ru/suggestions/api/4_1/rs/findById/" + id);
+        String resultRequest = dadataService.displayReturnedRequest(kladr_id);
 
         return resultRequest;
     }

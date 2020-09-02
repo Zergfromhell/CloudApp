@@ -10,8 +10,8 @@ import java.net.URL;
 
 @Repository
 public class DadataRepository {
-    public HttpURLConnection getHttpURLConnection(String address) throws IOException {
-        URL url = new URL(address);
+    public HttpURLConnection getHttpURLConnection(String kladr_id) throws IOException {
+        URL url = new URL("https://suggestions.dadata.ru/suggestions/api/4_1/rs/findById/address");
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setDoOutput(true);
         conn.setInstanceFollowRedirects(false);
@@ -20,7 +20,7 @@ public class DadataRepository {
         conn.setRequestProperty("Accept", "application/json");
         conn.setRequestProperty("Authorization", "Token abda59b74a5dd9c83bc31606b7a3f20d6b0fffb1");
         JSONObject query = new JSONObject();
-        query.put("query", "9120b43f-2fae-4838-a144-85e43c2bfb29");
+        query.put("query", kladr_id);
 
         OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
         wr.write(query.toString());

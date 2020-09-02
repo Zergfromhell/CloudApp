@@ -18,8 +18,8 @@ public class DadataService {
         this.dadataRepository = dadataRepository;
     }
 
-    public String displayReturnedRequest(String url) throws IOException {
-        HttpURLConnection conn = dadataRepository.getHttpURLConnection(url);
+    public String displayReturnedRequest(String kladr_id) throws IOException {
+        HttpURLConnection conn = dadataRepository.getHttpURLConnection(kladr_id);
 
         String line;
         int HttpResult = conn.getResponseCode();
