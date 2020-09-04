@@ -1,5 +1,12 @@
 spring:
   cloud:
+    config:
+      uri:
+        http://config-server:8888
+      fail-fast: true
+      enabled: true
+      retry:
+        max-attempts: 20
     consul:
       host: consul
       port: 8500

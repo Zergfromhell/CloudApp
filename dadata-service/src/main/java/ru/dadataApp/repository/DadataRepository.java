@@ -1,31 +1,47 @@
 package ru.dadataApp.repository;
 
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.*;
 import org.springframework.stereotype.Repository;
-
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import org.springframework.web.client.RestTemplate;
 
 @Repository
 public class DadataRepository {
-    public HttpURLConnection getHttpURLConnection(String kladr_id) throws IOException {
-        URL url = new URL("https://suggestions.dadata.ru/suggestions/api/4_1/rs/findById/address");
-        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-        conn.setDoOutput(true);
-        conn.setInstanceFollowRedirects(false);
-        conn.setRequestMethod("POST");
-        conn.setRequestProperty("Content-Type", "application/json");
-        conn.setRequestProperty("Accept", "application/json");
-        conn.setRequestProperty("Authorization", "Token abda59b74a5dd9c83bc31606b7a3f20d6b0fffb1");
-        JSONObject query = new JSONObject();
-        query.put("query", kladr_id);
+    @Value("${headers.content-type}")
+    private String mediaType;
+    @Value("${headers.first-header.name}")
+    private String firstHeaderName;
+    @Value("${headers.first-header.value}")
+    private String firstHeaderValue;
+    @Value("${headers.second-header.name}")
+    private String secondHeaderName;
+    @Value("${headers.second-header.value}")
+    private String secondHeaderValue;
+    @Value("${url}")
+    private String url;
+    @Value("${http-method}")
+    private String httpMethod;
+    @Value("${data}")
+    private String data;
 
-        OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
-        wr.write(query.toString());
-        wr.flush();
+    public String getHttpURLConnection(String kladr_id) {
 
-        return conn;
+        RestTemplate restTemplate = new RestTemplate();
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.valueOf(mediaType));
+        headers.add(firstHeaderName, firstHeaderValue);
+        headers.add(secondHeaderName, secondHeaderValue);
+
+        JSONObject request = new JSONObject();
+        request.put(data, kladr_id);
+
+        HttpEntity<String> entity = new HttpEntity<>(request.toString(), headers);
+
+        ResponseEntity<String> response =
+                restTemplate.exchange(url, HttpMethod.valueOf(httpMethod), entity, String.class);
+
+        return response.getBody();
     }
 }

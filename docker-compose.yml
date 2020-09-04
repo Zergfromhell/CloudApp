@@ -1,14 +1,30 @@
-version: "3"
+version: "2.4"
 services:
+  server-config:
+    build: ./config-server
+    image: config-server
+    container_name: config-server
+    healthcheck:
+      test: curl -sS http://127.0.0.1 || echo 1
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    ports:
+      - "8888:8888"
   consul:
     image: consul:latest
     container_name: consul
     ports:
-    - "8500:8500"
+      - "8500:8500"
   postgres:
     build: ./database-service/src/db
     image: postgres:alpine
     container_name: postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     expose:
       - "5432"
     environment:
@@ -21,12 +37,16 @@ services:
     build: ./dadata-service
     image: dadata-service
     container_name: dadata-service
+    depends_on:
+      server-config:
+        condition: service_healthy
   database-service:
     build: ./database-service
     image: database-service
     container_name: database-service
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
   gateway:
     build: ./gateway
     image: gateway

@@ -1,13 +1,12 @@
 package ru.dadataApp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.dadataApp.service.DadataService;
-
-import java.io.IOException;
 
 @RestController
 @RequestMapping("/dadata")
@@ -20,10 +19,8 @@ public class DadataController {
     }
 
     @GetMapping("/search/{kladr_id}")
-    public String cleanAddress(@PathVariable(name = "kladr_id") String kladr_id) throws IOException {
+    public String cleanAddress(@PathVariable(name = "kladr_id") String kladr_id) {
 
-        String resultRequest = dadataService.displayReturnedRequest(kladr_id);
-
-        return resultRequest;
+        return dadataService.displayReturnedRequest(kladr_id);
     }
 }
