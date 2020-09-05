@@ -11,7 +11,7 @@ import ru.dadataApp.service.DadataService;
 @RestController
 @RequestMapping("/dadata")
 public class DadataController {
-    DadataService dadataService;
+    private DadataService dadataService;
 
     @Autowired
     public DadataController(DadataService dadataService) {
@@ -28,11 +28,5 @@ public class DadataController {
     public String refresh() {
 
         return dadataService.refresh();
-    }
-
-    @GetMapping("/fallback")
-    private String fallback() {
-
-        return dadataService.redirectToDatabase();
     }
 }

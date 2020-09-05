@@ -8,15 +8,13 @@ import ru.dadataApp.repository.DadataRepository;
 
 @Service
 public class DadataService {
-    DadataRepository dadataRepository;
-    RefreshEndpoint refreshEndpoint;
-    DatabaseServiceClient client;
+    private DadataRepository dadataRepository;
+    private RefreshEndpoint refreshEndpoint;
 
     @Autowired
-    public DadataService(DadataRepository dadataRepository, DatabaseServiceClient client, RefreshEndpoint refreshEndpoint) {
+    public DadataService(DadataRepository dadataRepository, RefreshEndpoint refreshEndpoint) {
         this.dadataRepository = dadataRepository;
         this.refreshEndpoint = refreshEndpoint;
-        this.client = client;
     }
 
     public String displayReturnedRequest(String kladr_id) {
@@ -27,10 +25,5 @@ public class DadataService {
     public String refresh() {
         refreshEndpoint.refresh();
         return "Properties are successfully refreshed";
-    }
-
-    public String redirectToDatabase() {
-
-        return client.getCity("0100000200000");
     }
 }
