@@ -15,7 +15,7 @@ public class CityController {
     }
 
     @GetMapping("/search/{id}")
-    public String autoName(@PathVariable(name = "id") String id) {
+    public String getCity(@PathVariable(name = "id") String id) {
 
         return cityRepository.getCityByKladr_id(id).toString();
     }

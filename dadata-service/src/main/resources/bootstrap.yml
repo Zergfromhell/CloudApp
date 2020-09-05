@@ -8,5 +8,12 @@ spring:
       retry:
         max-attempts: 20
     consul:
+      discovery:
+        prefer-ip-address: true
       host: consul
       port: 8500
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, refresh

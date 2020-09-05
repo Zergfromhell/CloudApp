@@ -2,11 +2,13 @@ package ru.dadataApp.repository;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.*;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestTemplate;
 
 @Repository
+@RefreshScope
 public class DadataRepository {
     @Value("${headers.content-type}")
     private String mediaType;
