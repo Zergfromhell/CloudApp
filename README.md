@@ -48,6 +48,6 @@
 
 Файл конфигурация для доступа к dadata API находится здесь: https://github.com/Zergfromhell/CloudConfig/tree/master
 
-Обновить файл конфигурация перейдя по адресу: http://localhost:8080/search/config/refresh
+Обновить файл конфигурация можно перейдя по адресу: http://localhost:8080/search/config/refresh
 
 Если dadata API не доступен данные по объекту поднимаются из локальной базы данных.
