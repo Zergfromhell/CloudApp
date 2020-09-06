@@ -1,6 +1,8 @@
 Тестовое приложение на стеке:
 - **Spring Cloud Consul**
 - **Spring Cloud Gateway**
+- **Spring Cloud Config**
+- **Feign**
 
 Также использовалась база данных **PostgreSQL**
 
