@@ -18,7 +18,7 @@
 
 Пример запроса:
 
-`http://localhost:8080/search/city/0100000200000`
+http://localhost:8080/search/city/0100000200000
 
 Ответ:
 `{
