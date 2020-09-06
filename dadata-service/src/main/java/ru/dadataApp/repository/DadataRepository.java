@@ -1,5 +1,7 @@
 package ru.dadataApp.repository;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -8,6 +10,8 @@ import org.springframework.http.*;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestTemplate;
 import ru.dadataApp.client.DatabaseServiceClient;
+import ru.dadataApp.model.City;
+import ru.dadataApp.model.SuggestionsContainer;
 
 @Repository
 @RefreshScope
@@ -36,7 +40,7 @@ public class DadataRepository {
         this.client = client;
     }
 
-    public String getHttpURLConnection(String kladr_id) {
+    public City getHttpURLConnection(String kladr_id) {
 
         RestTemplate restTemplate = new RestTemplate();
 
@@ -55,6 +59,10 @@ public class DadataRepository {
 
         if(response.getStatusCode() != HttpStatus.OK) return client.getCity(kladr_id);
 
-        return response.getBody();
+        Gson gson = new GsonBuilder().create();
+
+        SuggestionsContainer data = gson.fromJson(response.getBody(), SuggestionsContainer.class);
+
+        return data.getSuggestions().get(0).getData();
     }
 }

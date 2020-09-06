@@ -1,15 +1,15 @@
 package ru.dadataApp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import ru.dadataApp.model.City;
 import ru.dadataApp.service.DadataService;
 
 @RestController
-@RequestMapping("/dadata")
+@RequestMapping("/search")
 public class DadataController {
     private DadataService dadataService;
 
@@ -18,13 +18,13 @@ public class DadataController {
         this.dadataService = dadataService;
     }
 
-    @GetMapping("/search/{kladr_id}")
-    public String cleanAddress(@PathVariable(name = "kladr_id") String kladr_id) {
+    @GetMapping("/city/{kladr_id}")
+    public City cleanAddress(@PathVariable(name = "kladr_id") String kladr_id) {
 
         return dadataService.displayReturnedRequest(kladr_id);
     }
 
-    @GetMapping("/refresh")
+    @GetMapping("/config/refresh")
     public String refresh() {
 
         return dadataService.refresh();

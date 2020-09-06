@@ -3,7 +3,7 @@ package ru.dadataApp.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.endpoint.RefreshEndpoint;
 import org.springframework.stereotype.Service;
-import ru.dadataApp.client.DatabaseServiceClient;
+import ru.dadataApp.model.City;
 import ru.dadataApp.repository.DadataRepository;
 
 @Service
@@ -17,7 +17,7 @@ public class DadataService {
         this.refreshEndpoint = refreshEndpoint;
     }
 
-    public String displayReturnedRequest(String kladr_id) {
+    public City displayReturnedRequest(String kladr_id) {
 
         return dadataRepository.getHttpURLConnection(kladr_id);
     }

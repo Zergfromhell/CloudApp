@@ -13,8 +13,4 @@ spring:
         - id: dadata-service
           uri: lb://dadata-service
           predicates:
-            - Path=/dadata/**
-        - id: database-service
-          uri: lb://database-service
-          predicates:
-            - Path=/database/**
+            - Path=/search/**

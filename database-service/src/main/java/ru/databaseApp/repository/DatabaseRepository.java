@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import ru.databaseApp.model.City;
 
 @Repository
-public interface CityRepository extends JpaRepository<City, Integer> {
+public interface DatabaseRepository extends JpaRepository<City, Integer> {
 
     @Query("select c from City c where c.kladr_id=:kladr_id")
     City getCityByKladr_id(@Param("kladr_id") String kladr_id);
