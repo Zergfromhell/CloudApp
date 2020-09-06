@@ -21,7 +21,7 @@
 Ответ:
 `{
     "postal_code":385200,
-    "address":"Респ Адыгея, г Адыгейск",
+    "address":"null,
     "country":"Россия",
     "federal_district":"Южный",
     "region_type":"Респ",
