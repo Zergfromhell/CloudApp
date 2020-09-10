@@ -1,6 +1,8 @@
 Тестовое приложение на стеке:
 - **Spring Cloud Consul**
 - **Spring Cloud Gateway**
+- **Spring Cloud Config**
+- **Feign**
 
 Также использовалась база данных **PostgreSQL**
 
@@ -21,7 +23,7 @@
 Ответ:
 `{
     "postal_code":385200,
-    "address":"Респ Адыгея, г Адыгейск",
+    "address":"null,
     "country":"Россия",
     "federal_district":"Южный",
     "region_type":"Респ",
@@ -45,8 +47,9 @@
     "population":null,
     "foundation_year":null
 }`
+
 Файл конфигурация для доступа к dadata API находится здесь: https://github.com/Zergfromhell/CloudConfig/tree/master
 
-Обновить файл конфигурация перейдя по адресу: http://localhost:8080/search/config/refresh
+Обновить файл конфигурация можно перейдя по адресу: http://localhost:8080/search/config/refresh
 
 Если dadata API не доступен данные по объекту поднимаются из локальной базы данных.
