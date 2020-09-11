@@ -14,7 +14,9 @@
 
 Сервисы регистрируются в Consul по адресу http://localhost:8500
 
-Приложение запускается файлом `docker-compose.yml`. 
+**Скрипт cleanup удаляет сеть cloudapp_default, контейнеры и образы приложения, и все dangling образы**
+
+**Скрипт start упаковывает приложение с помощью mvn clean package и запускает docker-compose**
 
 Поиск доступен по адресу http://localhost:8080/search/city/*
 
