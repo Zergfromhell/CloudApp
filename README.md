@@ -50,7 +50,7 @@
     "foundation_year":null
 }`
 
-config-server предназначен для доступа и изменения файла конфигурации во время работы приложения.
+**config-server** предназначен для доступа и изменения файла конфигурации во время работы приложения.
 
 Файл конфигурация для доступа к dadata API находится здесь: https://github.com/Zergfromhell/CloudConfig/tree/master
 
