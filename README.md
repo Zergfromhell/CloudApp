@@ -12,11 +12,11 @@
 
 Доступ к поиску осуществляется, через шлюз API Spring Cloud Gateway.
 
-Сервисы регистрируются в Consul по адресу http://localhost:8500
-
 **Скрипт cleanup удаляет сеть cloudapp_default, контейнеры и образы приложения, и все dangling образы**
 
 **Скрипт start упаковывает приложение с помощью mvn clean package и вызывает docker-compose для старта приложения**
+
+Сервисы регистрируются в Consul по адресу http://localhost:8500
 
 Поиск доступен по адресу http://localhost:8080/search/city/*
 
