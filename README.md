@@ -16,7 +16,7 @@
 
 **Скрипт cleanup удаляет сеть cloudapp_default, контейнеры и образы приложения, и все dangling образы**
 
-**Скрипт start упаковывает приложение с помощью mvn clean package и запускает docker-compose**
+**Скрипт start упаковывает приложение с помощью mvn clean package и вызывает docker-compose для старта приложения**
 
 Поиск доступен по адресу http://localhost:8080/search/city/*
 
