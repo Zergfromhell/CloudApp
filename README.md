@@ -12,11 +12,11 @@
 
 Доступ к поиску осуществляется, через шлюз API Spring Cloud Gateway.
 
-Сервисы регистрируются в Consul по адресу http://localhost:8500
-
 **Скрипт cleanup удаляет сеть cloudapp_default, контейнеры и образы приложения, и все dangling образы**
 
-**Скрипт start упаковывает приложение с помощью mvn clean package и запускает docker-compose**
+**Скрипт start упаковывает приложение с помощью mvn clean package и вызывает docker-compose для старта приложения**
+
+Сервисы регистрируются в Consul по адресу http://localhost:8500
 
 Поиск доступен по адресу http://localhost:8080/search/city/*
 
@@ -50,8 +50,10 @@
     "foundation_year":null
 }`
 
+**config-server** предназначен для доступа и изменения файла конфигурации во время работы приложения.
+
 Файл конфигурация для доступа к dadata API находится здесь: https://github.com/Zergfromhell/CloudConfig/tree/master
 
-Обновить файл конфигурация можно перейдя по адресу: http://localhost:8080/search/config/refresh
+Обновить конфигурацию можно перейдя по адресу: http://localhost:8080/search/config/refresh
 
 Если dadata API не доступен данные по объекту поднимаются из локальной базы данных.
