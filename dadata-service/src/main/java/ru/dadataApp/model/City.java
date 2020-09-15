@@ -7,52 +7,52 @@ import lombok.Setter;
 @Setter
 public class City {
 
-    private Integer postal_code;
+    private Integer postalCode;
 
     private String address;
 
     private String country;
 
-    private String federal_district;
+    private String federalDistrict;
 
-    private String region_type;
+    private String regionType;
 
     private String region;
 
-    private String area_type;
+    private String areaType;
 
     private String area;
 
-    private String city_type;
+    private String cityType;
 
     private String city;
 
-    private String settlement_type;
+    private String settlementType;
 
     private String settlement;
 
-    private String kladr_id;
+    private String kladrId;
 
-    private String fias_id;
+    private String fiasId;
 
-    private String fias_level;
+    private String fiasLevel;
 
-    private Integer capital_marker;
+    private Integer capitalMarker;
 
     private String okato;
 
     private String oktmo;
 
-    private String tax_office;
+    private String taxOffice;
 
     private String timezone;
 
-    private String geo_lat;
+    private String geoLat;
 
-    private String geo_lon;
+    private String geoLon;
 
     private String population;
 
-    private String foundation_year;
+    private String foundationYear;
 
 }

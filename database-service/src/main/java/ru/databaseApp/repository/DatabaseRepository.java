@@ -9,6 +9,6 @@ import ru.databaseApp.model.City;
 @Repository
 public interface DatabaseRepository extends JpaRepository<City, Integer> {
 
-    @Query("select c from City c where c.kladr_id=:kladr_id")
-    City getCityByKladr_id(@Param("kladr_id") String kladr_id);
+    @Query("select c from City c where c.kladrId=:kladrId")
+    City getCityByKladrId(@Param("kladrId") String kladrId);
 }

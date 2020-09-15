@@ -18,6 +18,6 @@ public class DatabaseController {
     @GetMapping("/search/{id}")
     public City getCity(@PathVariable(name = "id") String id) {
 
-        return databaseRepository.getCityByKladr_id(id);
+        return databaseRepository.getCityByKladrId(id);
     }
 }
